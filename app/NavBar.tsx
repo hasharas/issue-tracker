@@ -1,4 +1,5 @@
 'use client';
+import classNames from 'classnames';
 import Link from 'next/link';
 import {usePathname} from 'next/navigation';
 import React from 'react';
@@ -23,7 +24,10 @@ const NavBar = () => {
                               <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`${link.href === currentPath ? 'text-zink-900' : 'text-zinc-500'} list hover:text-zinc-700 transition-colors`}
+                                    className={classNames({
+                                          'text-blue-500': link.href === currentPath,
+                                          'text-zinc-600': link.href !== currentPath
+                                    })}
                               >{link.lable}</Link>
                         )}
 
